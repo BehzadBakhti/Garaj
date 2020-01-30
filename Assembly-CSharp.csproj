@@ -63,10 +63,147 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Test.cs" />
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Scripts\ConcernPoint.cs" />
+    <Compile Include="Assets\Scripts\ConcernPointSpawner.cs" />
+    <Compile Include="Assets\Scripts\Disaster.cs" />
+    <Compile Include="Assets\Scripts\Earth.cs" />
+    <Compile Include="Assets\Scripts\ResourcePoint.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Camera\Scripts\CameraController.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Board.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Exclusive.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Colors\Scripts\Circle.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Colors\Scripts\Colors.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\CustomPointerProxy.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\Init.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\LayerDelegate.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\RedirectInput.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Multiuser\Scripts\Logo.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Photos\Scripts\Container.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Photos\Scripts\SetColor.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Portal\Scripts\Planet.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Portal\Scripts\Rotator.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Portal\Scripts\Spawner.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Portal\Scripts\Vortex.cs" />
+    <Compile Include="Assets\TouchScript\Examples\RawInput\Scripts\Ball.cs" />
+    <Compile Include="Assets\TouchScript\Examples\RawInput\Scripts\Spawner.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Taps\Scripts\Break.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Taps\Scripts\Kick.cs" />
+    <Compile Include="Assets\TouchScript\Examples\Taps\Scripts\Spawn.cs" />
+    <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\Checker.cs" />
+    <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\ExamplesList.cs" />
+    <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\Highlight.cs" />
+    <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\KillMe.cs" />
+    <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\Runner.cs" />
+    <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\ShowMe.cs" />
+    <Compile Include="Assets\TouchScript\Modules\TUIO\Scripts\InputSources\TuioInput.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\CursorManager.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\MouseCursor.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\ObjectCursor.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\PenCursor.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\PointerCursor.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\TouchCursor.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\UI\GradientTexture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Cursors\UI\TextureSwitch.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\Transformer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Behaviors\UI\OverHelper.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Clusters\Clusters2D.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Core\DebuggableMonoBehaviour.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Core\GestureManagerInstance.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Core\LayerManagerInstance.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Core\TouchManagerInstance.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\Filters\IPointerDataFilter.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\Filters\IPointerLogFilter.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\Filters\PointerLogFilter.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\GL\DebugHelper.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\GL\GLDebug.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\Loggers\FileReaderLogger.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\Loggers\FileWriterLogger.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\Loggers\IPointerLogger.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\Loggers\PointerLogger.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Debugging\TouchScriptDebugger.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Devices\Display\DisplayDevice.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Devices\Display\GenericDisplayDevice.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Devices\Display\IDisplayDevice.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\GestureManager.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\FlickGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\Gesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\IGestureDelegate.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\LongPressGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\MetaGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\PressGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\ReleaseGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TapGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\Base\OnePointTrasformGestureBase.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\Base\TransformGestureBase.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\Base\TwoPointTransformGestureBase.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\Clustered\ClusteredPinnedTransformGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\Clustered\ClusteredScreenTransformGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\Clustered\ClusteredTransformGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\ITransformGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\PinnedTransformGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\ScreenTransformGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGestures\TransformGesture.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Hit\HitData.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Hit\HitTest.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Hit\RaycastHitUI.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Hit\Untouchable.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\IDebuggable.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\IGestureManager.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\ILayerManager.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\ITouchManager.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\InputSources\ICoordinatesRemapper.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\InputSources\IInputSource.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\InputSources\InputHandlers\MouseHandler.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\InputSources\InputHandlers\TouchHandler.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\InputSources\InputHandlers\WindowsPointerHandlers.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\InputSources\InputSource.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\InputSources\StandardInput.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\LayerManager.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Layers\FullscreenLayer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Layers\ILayerDelegate.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Layers\ProjectionParams.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Layers\StandardLayer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Layers\TouchLayer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Layers\UI\TouchScriptInputModule.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\FakePointer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\IPointer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\MousePointer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\ObjectPointer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\PenPointer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\Pointer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\PointerFactory.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Pointers\TouchPointer.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\TouchManager.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\Attributes\NullToggleAttribute.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\Attributes\ToggleLeftAttribute.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\BinaryUtils.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\ClusterUtils.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\EventHandlerExtensions.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\Geom\ProjectionUtils.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\Geom\TwoD.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\ObjectPool.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\Platform\WindowsUtils.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\PointerUtils.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\TimedSequence.cs" />
+    <Compile Include="Assets\TouchScript\Scripts\Utils\TransformUtils.cs" />
+    <None Include="Assets\TouchScript\license.txt" />
+    <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
+    <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
+    <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
+    <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
+    <None Include="Assets\TouchScript\Shaders\Cursor.shader" />
+    <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
+    <None Include="Assets\Samples\Polybrush\1.0.1\Shader Examples (Standard)\Shader\StandardVertexColor.shader" />
+    <None Include="Assets\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
+    <None Include="Assets\Samples\Polybrush\1.0.1\Shader Examples (Standard)\Shader\StandardTextureBlend.shader" />
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -75,9 +212,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
@@ -90,6 +224,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Polybrush">
+      <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/Unity.Polybrush.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Polybrush.Editor">
+      <HintPath>E:/UnityProject/New Unity Project/Library/ScriptAssemblies/Unity.Polybrush.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -267,6 +407,15 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="OSCsharp">
+      <HintPath>E:/UnityProject/New Unity Project/Assets/TouchScript/Modules/TUIO/Libraries/OSCsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="TUIOsharp">
+      <HintPath>E:/UnityProject/New Unity Project/Assets/TouchScript/Modules/TUIO/Libraries/TUIOsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>E:/UnityProject/New Unity Project/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
