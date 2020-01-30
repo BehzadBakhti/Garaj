@@ -16,6 +16,21 @@ PluginImporter:
     second:
       enabled: 1
       settings: {}
+<<<<<<< HEAD
+  - first:
+      Editor: Editor
+    second:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+  - first:
+      Windows Store Apps: WindowsStoreApps
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+=======
+>>>>>>> f66de6ebd2fd433e575a56b79cb00202b33f45b3
   userData: 
   assetBundleName: 
   assetBundleVariant: 
