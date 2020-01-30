@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    private int Number;
+    private int _number;
     
     
     private void OnEnable()
