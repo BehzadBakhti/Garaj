@@ -22,6 +22,11 @@ public class Earth : MonoBehaviour
         _resourcePoints = new List<ResourcePoint>();
         _spawnChance = _initialSpawnChance;
         InvokeRepeating("Spawn", 5, _spawnInterval);
+        
+    }
+
+    private void Start()
+    {
         UIManager.Instance.MiniGameFinished += Instance_MiniGameFinished;
     }
 
@@ -59,6 +64,10 @@ public class Earth : MonoBehaviour
 
     private void C_FinalDamage(Disaster d)
     {
+        if (_activeDisaster == d)
+        {
+            _activeDisaster = null;
+        }
         ReduceHealth(d.FinalDamage);
         _disasters.Remove(d);
         _Spawner.RemoveConcernPoint(d);
@@ -77,6 +86,7 @@ public class Earth : MonoBehaviour
 
     private void UnSubscribe(Disaster d)
     {
+        if(d==null)return;
         d.Selected -= R_Selected;
         d.DamageEarth -= C_DamageEarth;
         d.FinalDamageEarth -= C_FinalDamage;
