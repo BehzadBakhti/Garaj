@@ -7,19 +7,8 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance = null;
     public int earthInitialHealth = 0;
-    [Serializable]
-    public class DisasterInfo
-    {
-        public DisasterType type;
-        public Sprite icon = null;
-        public string desc = "";
-        public int damagePerSecond;
-        public int finalDamage;
-        public float minigame_velocity = 2;
-        public float minigame_changeRate = 1.5f;
-        public float minigame_changeSpeed = 3;
-        public float minigame_radius = 3;
-    }
+    
+
     public List<DisasterInfo> Infos = null;
     public Dictionary<DisasterType, DisasterInfo> DisasterInfos = new Dictionary<DisasterType, DisasterInfo>();
 

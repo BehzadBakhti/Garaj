@@ -15,6 +15,7 @@ public  abstract class ConcernPoint : MonoBehaviour
     private void Awake()
     {
         Press = GetComponent<PressGesture>();
+        
     }
     public void OnEnable()
     {

@@ -111,11 +111,12 @@ MonoBehaviour:
   Name: Fire
   Radius: 0.2
   _lineRenderer: {fileID: 5224396784406161533}
-  _damagePerSecond: 20
-  _finalDamage: 0
-  _lifeTime: 10
+  DamagePerSecond: 20
+  FinalDamage: 250
+  LifeTime: 5
   DisasterArea: 0
   DisasterType: 0
+  _info: {fileID: 11400000, guid: aa272a69d9b7ed745b33c1b533e36315, type: 2}
 --- !u!120 &5224396784406161533
 LineRenderer:
   m_ObjectHideFlags: 0

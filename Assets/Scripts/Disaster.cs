@@ -4,19 +4,47 @@ using UnityEngine;
 public class Disaster : ConcernPoint
 {
     public event Action<Disaster> Selected;
-    public event Action<int> Damage;
-    public event Action<int> FinalDamage;
-    [SerializeField] private int _damagePerSecond;
-    [SerializeField] private int _finalDamage;
-    [SerializeField] private int _lifeTime;
+    public event Action<int> DamageEarth;
+    public event Action<Disaster> FinalDamageEarth;
+    public int DamagePerSecond;
+    public int FinalDamage;
+    public int LifeTime;
     public DisasterArea DisasterArea;
     public DisasterType DisasterType;
+    public DisasterInfo _info;
 
 
     protected override void Select()
     {
         Selected?.Invoke(this);
     }
+
+    private void Start()
+    {
+        DamagePerSecond=_info.damagePerSecond;
+        FinalDamage=_info.finalDamage;
+        LifeTime=_info.LifeTime;
+
+        InvokeRepeating("Damage", 0, 1);
+    }
+
+    private void Damage()
+    {
+        LifeTime--;
+        if (LifeTime <= 0)
+        {
+            FinalDamageEarth?.Invoke(this);
+            return;
+        }
+        DamageEarth?.Invoke(DamagePerSecond);
+    }
+
+    private void OnDestroy()
+    {
+        CancelInvoke();
+    }
+
+
 }
 
 public enum DisasterArea
