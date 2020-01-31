@@ -54,13 +54,13 @@ public class RunAwayCircle : MonoBehaviour
 
     void Start()
     {
-        StartMiniGame(2, 1.5f, 3, 3000);
-        //Cursor.visible = false;
     }
 
-    public async void StartMiniGame(float velocityAmount, float changeRate = 3, float velocityChangeSpeed = 1, int delay = 0)
+    public async void StartMiniGame(float radius, float velocityAmount, float changeRate = 3, float velocityChangeSpeed = 1, int delay = 0)
     {
+        transform.localScale = new Vector3(radius, radius, radius);
         await Task.Delay(delay);
+        this.radius = radius;
         Object.Init(velocityAmount, changeRate, velocityChangeSpeed);
         isStarted = true;
     }

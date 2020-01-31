@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         disasterImage.sprite = info.icon;
         disasterDesc.text = info.desc;
         disasterWindowAnimator.SetBool("Show", true);
-        runAwayCircle.StartMiniGame(info.minigame_velocity, info.minigame_changeRate, info.minigame_changeSpeed, 3000);
+        runAwayCircle.StartMiniGame(info.minigame_radius, info.minigame_velocity, info.minigame_changeRate, info.minigame_changeSpeed, 0);
         orbitCam.enabled = false;
     }
     public void HideDisaster()
