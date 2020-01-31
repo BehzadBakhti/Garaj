@@ -5,41 +5,95 @@ using UnityEngine;
 public class ConcernPointSpawner : MonoBehaviour
 {
 
-    [SerializeField] private Collider _surface;
 
-    [SerializeField] private List<ConcernPoint> _concernTypes;
+    [SerializeField] private ResourcePoint _resourcePrefab;
+    [SerializeField] private List<Disaster> _disasterTypePrefabs;
+    [SerializeField] private List<ConcernPoint> _concernPoints;
+    
 
-
-    public void Spawn()
+    public Disaster SpawnDisaster()
     {
-        RaycastHit hit = new RaycastHit();
+
+        int index = Random.Range(0, _disasterTypePrefabs.Count);
+        GameObject prefab = _disasterTypePrefabs[index].gameObject;
+
+        ConcernPoint d = null;
+
+        while (d == null)
+        {
+            d = SpawnConcernPoint(prefab, "disaster");
+        }
+
+        return (Disaster)d;
+    }
+
+    public ResourcePoint SpawnResource()
+    {
+        ConcernPoint r = null;
+
+        while (r == null)
+        {
+            r = SpawnConcernPoint(_resourcePrefab.gameObject, "resource");
+        }
+
+        return (ResourcePoint)r;
+
+    }
+
+    private ConcernPoint SpawnConcernPoint(GameObject prefab, string type)
+    {
         var center = transform.position;
 
         var outPoint = GenerateEndPoint();
-        Ray ray = new Ray(outPoint,center-outPoint);
-        var lr = gameObject.AddComponent<LineRenderer>();
-        lr.SetPosition(0, center);
-        lr.SetPosition(1, center + ray.direction * -5);
+        Ray ray = new Ray(outPoint, center - outPoint);
 
-
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out var hit))
         {
-            if (hit.transform.GetComponent<Collider>() == _surface)
-                print(hit.point);
+            if (!IsAreaClear(hit.point)) return null;
+
+            if (type == "disaster")
+            {
+                if (hit.collider.CompareTag("Land"))
+                {
+                    if (prefab.GetComponent<Disaster>().DisasterArea == DisasterArea.Water) return null;
+
+                }
+                else if (hit.collider.CompareTag("Water"))
+                {
+                    if (prefab.GetComponent<Disaster>().DisasterArea == DisasterArea.Land) return null;
+                }
+            }
+
+            var go = Instantiate(prefab, hit.point, Quaternion.identity);
+            go.transform.rotation = Quaternion.FromToRotation(Vector3.up, -ray.direction);
+            var cp = go.GetComponent<ConcernPoint>();
+            cp.RayOut();
+            _concernPoints.Add(cp);
+
+            return cp;
+
         }
+
+        return null;
+
+    }
+
+    private bool IsAreaClear(Vector3 newPoint)
+    {
+        foreach (var concernPoint in _concernPoints)
+        {
+            if (Vector3.Distance(newPoint, concernPoint.gameObject.transform.position) < concernPoint.Radius)
+                return false;
+        }
+        return true;
     }
 
     private Vector3 GenerateEndPoint()
     {
-     
+
         return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 10;
 
     }
-
-
-
-
-
 
 
 }
