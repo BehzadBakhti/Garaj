@@ -78,6 +78,10 @@ public class ConcernPointSpawner : MonoBehaviour
 
     }
 
+    public void RemoveConcernPoint(ConcernPoint cp)
+    {
+        _concernPoints.Remove(cp);
+    }
     private bool IsAreaClear(Vector3 newPoint)
     {
         foreach (var concernPoint in _concernPoints)
