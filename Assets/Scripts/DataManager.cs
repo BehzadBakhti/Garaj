@@ -18,6 +18,7 @@ public class DataManager : MonoBehaviour
         public float minigame_velocity = 2;
         public float minigame_changeRate = 1.5f;
         public float minigame_changeSpeed = 3;
+        public float minigame_radius = 3;
     }
     public List<DisasterInfo> Infos = null;
     public Dictionary<DisasterType, DisasterInfo> DisasterInfos = new Dictionary<DisasterType, DisasterInfo>();
