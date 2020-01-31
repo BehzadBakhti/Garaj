@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class RunAwayObject : MonoBehaviour
+public class RunAwayObject : MonoBehaviour, IPointerDownHandler
 {
     private Vector3 velocity = new Vector3(0, 0);
     private Vector3 targetVelocity = new Vector3(0, 0);
@@ -13,9 +14,12 @@ public class RunAwayObject : MonoBehaviour
     private bool isInited = false;
     private float velocityChangeSpeed = 1;
     public float maxRadius = 0;
+    private bool isMouseHeld = false;
+    public LineRenderer lineRenderer = null;
 
     private void Start()
     {
+        RefreshLine();
     }
 
     public void Init(float velocityAmount, float changeRate = 3, float velocityChangeSpeed = 1)
@@ -36,7 +40,11 @@ public class RunAwayObject : MonoBehaviour
             velocity = Vector2.Lerp(velocity, targetVelocity, Time.deltaTime* 3);
 
             transform.localPosition += velocity;
-            transform.localPosition += (Input.mousePosition - lastMousePosition) / 20;
+            if (isMouseHeld)
+            {
+                transform.localPosition += (Input.mousePosition - lastMousePosition) / 20;
+                RefreshLine();
+            }
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
 
             Vector2 pos = transform.localPosition;
@@ -45,10 +53,27 @@ public class RunAwayObject : MonoBehaviour
 
             CheckVelocity();
         }
+
+        if (isMouseHeld)
+        {
+            if (Input.GetMouseButtonUp(0))
+                isMouseHeld = false;
+        }
     }
 
     public void CheckVelocity()
     {
+        if (!isMouseHeld)
+        {
+            targetVelocity = transform.localPosition;
+            targetVelocity.x = Mathf.Sign(targetVelocity.x);
+            targetVelocity.y = Mathf.Sign(targetVelocity.y);
+            targetVelocity.z = Mathf.Sign(targetVelocity.z);
+            targetVelocity *= velocityAmount;
+            if (targetVelocity.x !=0 || targetVelocity.y != 0 || targetVelocity.z != 0)
+                return;
+        }
+
         if (Time.time - lastChangeTime >= changeRate)
         {
             lastChangeTime = Time.time;
@@ -58,6 +83,20 @@ public class RunAwayObject : MonoBehaviour
             targetVelocity.z = Mathf.Sign(targetVelocity.z);
             targetVelocity *= velocityAmount;
         }
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        isMouseHeld = true;
+        lastMousePosition = Input.mousePosition;
+        RefreshLine();
+    }
+
+    private void RefreshLine()
+    {
+        if (isMouseHeld)
+            lineRenderer.SetPositions(new Vector3[] { transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) });
+        else
+            lineRenderer.SetPositions(new Vector3[] { });
     }
 
     public void ClampPositionToCircle(Vector2 center, float radius, ref Vector2 position)

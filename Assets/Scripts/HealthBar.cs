@@ -52,18 +52,10 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        CurrentHealth = Health;
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Damage(100);
-        }
-    }
     public void Damage(int damage)
     {
         transform.DOScale(1.1f, 0.1f).SetEase(Ease.OutCubic).OnComplete(() =>
@@ -71,5 +63,11 @@ public class HealthBar : MonoBehaviour
             transform.DOScale(1, 0.1f).SetEase(Ease.InCubic);
         });
         CurrentHealth -= damage;
+    }
+
+    public void Reset(int initialHealth)
+    {
+        Health = initialHealth;
+        CurrentHealth = initialHealth;
     }
 }

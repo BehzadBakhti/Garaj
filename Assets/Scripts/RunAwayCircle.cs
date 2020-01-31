@@ -14,7 +14,7 @@ public class RunAwayCircle : MonoBehaviour
     public Color isInsideColor = Color.white;
     public RunAwayObject Object = null;
     public float radius = 0;
-    public float totalTime = 20;
+    public float totalTime = 200000;
     public float keepInCircleSeconds = 3;
     private float _gatheredSeconds = 0;
     public float gatheredSeconds
@@ -55,7 +55,7 @@ public class RunAwayCircle : MonoBehaviour
     void Start()
     {
         StartMiniGame(2, 1.5f, 3, 3000);
-        Cursor.visible = false;
+        //Cursor.visible = false;
     }
 
     public async void StartMiniGame(float velocityAmount, float changeRate = 3, float velocityChangeSpeed = 1, int delay = 0)
