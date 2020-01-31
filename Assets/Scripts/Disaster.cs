@@ -11,6 +11,7 @@ public class Disaster : ConcernPoint
     public int LifeTime;
     public DisasterArea DisasterArea;
     public DisasterType DisasterType;
+    public DisasterInfo _info;
 
 
     protected override void Select()
@@ -20,7 +21,10 @@ public class Disaster : ConcernPoint
 
     private void Start()
     {
-     
+        DamagePerSecond=_info.damagePerSecond;
+        FinalDamage=_info.finalDamage;
+        LifeTime=_info.LifeTime;
+
         InvokeRepeating("Damage", 0, 1);
     }
 

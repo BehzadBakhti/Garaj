@@ -11,22 +11,41 @@ public class Earth : MonoBehaviour
     [SerializeField] private int _date;
     [SerializeField] private int _golds;
     [SerializeField] private int _health;
-    
+    [SerializeField] private int _spawnInterval;
+    [SerializeField] private int _initialSpawnChance;
+    private int _spawnChance;
+
 
     private void Awake()
     {
         _disasters = new List<Disaster>();
         _resourcePoints = new List<ResourcePoint>();
+        _spawnChance = _initialSpawnChance;
+        InvokeRepeating("Spawn", 5, _spawnInterval);
+        UIManager.Instance.MiniGameFinished += Instance_MiniGameFinished;
     }
 
-    private void Update()
+    private void Instance_MiniGameFinished(bool done)
     {
+        if (done)
+            ResolveDisaster();
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+    private void Spawn()
+    {
+        int chance = Random.Range(0, 100);
+        if (chance < _spawnChance)
         {
-            SpawnResource();
+
+            //  SpawnResource();
             SpawnDisaster();
+            _spawnChance = _initialSpawnChance;
         }
+        else
+        {
+            _spawnChance += 20;
+        }
+
     }
 
     private void SpawnDisaster()
@@ -48,11 +67,19 @@ public class Earth : MonoBehaviour
         //// Update Amount on UI
     }
 
+    private void ResolveDisaster()
+    {
+        _disasters.Remove(_activeDisaster);
+        _Spawner.RemoveConcernPoint(_activeDisaster);
+        UnSubscribe(_activeDisaster);
+        Destroy(_activeDisaster.gameObject);
+    }
+
     private void UnSubscribe(Disaster d)
     {
-       d.Selected -= R_Selected;
-       d.DamageEarth -= C_DamageEarth;
-       d.FinalDamageEarth -= C_FinalDamage;
+        d.Selected -= R_Selected;
+        d.DamageEarth -= C_DamageEarth;
+        d.FinalDamageEarth -= C_FinalDamage;
     }
 
     private void C_DamageEarth(int damage)
@@ -63,8 +90,8 @@ public class Earth : MonoBehaviour
     private void ReduceHealth(int damage)
     {
         _health -= damage;
-       
-        
+
+
         if (_health < 0)
         {
             GameOver();
@@ -87,16 +114,17 @@ public class Earth : MonoBehaviour
     {
         _activeDisaster = d;
 
-        /// Open UI for selected
+        UIManager.Instance.ShowDisaster(d.DisasterType);
     }
 
     private void C_Collected(ResourcePoint r)
-    {    _golds += r.GetAmount();
-        
+    {
+        _golds += r.GetAmount();
+
         _resourcePoints.Remove(r);
         _Spawner.RemoveConcernPoint(r);
         Destroy(r.gameObject);
-        
+
 
     }
 

@@ -9,12 +9,12 @@ public class ConcernPointSpawner : MonoBehaviour
     [SerializeField] private ResourcePoint _resourcePrefab;
     [SerializeField] private List<Disaster> _disasterTypePrefabs;
     [SerializeField] private List<ConcernPoint> _concernPoints;
-    
+
 
     public Disaster SpawnDisaster()
     {
 
-        int index = Random.Range(0, _disasterTypePrefabs.Count);
+        var index = GetIndexOfDisaster();
         GameObject prefab = _disasterTypePrefabs[index].gameObject;
 
         ConcernPoint d = null;
@@ -25,6 +25,21 @@ public class ConcernPointSpawner : MonoBehaviour
         }
 
         return (Disaster)d;
+    }
+
+    private int GetIndexOfDisaster()
+    {
+        var indexes = new List<int>(150);
+        for (var j = 0; j < _disasterTypePrefabs.Count; j++)
+        {
+            var disaster = _disasterTypePrefabs[j];
+            for (int i = 0; i < disaster._info.Frequency; i++)
+            {
+                indexes.Add(j);
+            }
+        }
+        int index = Random.Range(0, indexes.Count);
+        return indexes[index];
     }
 
     public ResourcePoint SpawnResource()

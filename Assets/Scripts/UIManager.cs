@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public event Action<bool> MiniGameFinished;
+    
     public static UIManager Instance = null;
     public Text CoinText = null;
     private int _coins = 0;
@@ -97,7 +99,9 @@ public class UIManager : MonoBehaviour
         if (done)
         {
             HideDisaster();
+
         }
+        MiniGameFinished?.Invoke(done);
     }
 
 }
